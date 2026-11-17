@@ -27,8 +27,9 @@ st.markdown("""
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         color: #0F172A;
     }
-    .stApp {
-        background-color: #F4F6F9;
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+        background-color: #F4F6F9 !important;
+        color: #0F172A !important;
     }
 
     /* Hide default Streamlit branding & menu */
@@ -70,18 +71,18 @@ st.markdown("""
         font-size: 16px;
         font-weight: 600;
         letter-spacing: -0.2px;
-        color: #F8FAFC;
+        color: #F8FAFC !important;
     }
     .brand-sub {
         font-size: 12px;
-        color: #94A3B8;
+        color: #94A3B8 !important;
         border-left: 1px solid #334155;
         padding-left: 12px;
     }
     .top-nav-meta {
         font-family: 'JetBrains Mono', monospace;
         font-size: 11px;
-        color: #CBD5E1;
+        color: #CBD5E1 !important;
         display: flex;
         align-items: center;
         gap: 16px;
@@ -97,15 +98,57 @@ st.markdown("""
 
     /* Sidebar Styling */
     section[data-testid="stSidebar"] {
-        background-color: #FFFFFF;
-        border-right: 1px solid #E2E8F0;
+        background-color: #FFFFFF !important;
+        border-right: 1px solid #CBD5E1 !important;
     }
-    section[data-testid="stSidebar"] .stRadio > label {
-        font-weight: 600;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.6px;
-        color: #64748B;
+    section[data-testid="stSidebar"] * {
+        color: #0F172A !important;
+    }
+
+    /* FORCE HIGH-CONTRAST LIGHT MODE ON ALL NATIVE STREAMLIT TEXT & WIDGETS */
+    label, .stRadio label p, .stCheckbox label p, .stSelectbox label p, .stTextInput label p, .stTextArea label p,
+    [data-testid="stMarkdownContainer"] p, [data-testid="stMarkdownContainer"] li,
+    h1, h2, h3, h4, h5, h6 {
+        color: #0F172A !important;
+    }
+    [data-testid="stCaptionContainer"] p {
+        color: #475569 !important;
+    }
+    [data-testid="stMetricLabel"] p {
+        color: #475569 !important;
+        font-weight: 600 !important;
+    }
+    [data-testid="stMetricValue"] div {
+        color: #0F172A !important;
+    }
+
+    /* Clean White Inputs & Dropdowns */
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="input"] > div,
+    div[data-baseweb="textarea"] > div {
+        background-color: #FFFFFF !important;
+        color: #0F172A !important;
+        border: 1px solid #CBD5E1 !important;
+    }
+    div[data-baseweb="select"] span,
+    div[data-baseweb="input"] input,
+    div[data-baseweb="textarea"] textarea {
+        color: #0F172A !important;
+        -webkit-text-fill-color: #0F172A !important;
+    }
+    ul[role="listbox"] {
+        background-color: #FFFFFF !important;
+    }
+    ul[role="listbox"] li {
+        color: #0F172A !important;
+    }
+    [data-testid="stFileUploaderDropzone"] {
+        background-color: #F8FAFC !important;
+        border: 1px dashed #94A3B8 !important;
+        color: #0F172A !important;
+    }
+    [data-testid="stFileUploaderDropzone"] * {
+        color: #0F172A !important;
     }
 
     /* KPI Cards */
@@ -117,58 +160,58 @@ st.markdown("""
     }
     .kpi-card {
         background: #FFFFFF;
-        border: 1px solid #E2E8F0;
+        border: 1px solid #CBD5E1;
         border-radius: 6px;
         padding: 14px 18px;
-        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
     .kpi-label {
         font-size: 11px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: #64748B;
+        color: #475569 !important;
         margin-bottom: 6px;
     }
     .kpi-val {
         font-size: 24px;
         font-weight: 700;
-        color: #0F172A;
+        color: #0F172A !important;
         line-height: 1.1;
     }
     .kpi-delta-bad {
         font-size: 11px;
-        font-weight: 500;
-        color: #B91C1C;
+        font-weight: 600;
+        color: #B91C1C !important;
         margin-top: 5px;
     }
     .kpi-delta-good {
         font-size: 11px;
-        font-weight: 500;
-        color: #047857;
+        font-weight: 600;
+        color: #047857 !important;
         margin-top: 5px;
     }
     .kpi-delta-neutral {
         font-size: 11px;
         font-weight: 500;
-        color: #475569;
+        color: #475569 !important;
         margin-top: 5px;
     }
 
     /* Clean White Surface Panels */
     .ops-panel {
         background: #FFFFFF;
-        border: 1px solid #E2E8F0;
+        border: 1px solid #CBD5E1;
         border-radius: 6px;
         padding: 18px 20px;
         margin-bottom: 14px;
-        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
     .panel-header {
         font-size: 14px;
         font-weight: 600;
-        color: #0F172A;
-        border-bottom: 1px solid #F1F5F9;
+        color: #0F172A !important;
+        border-bottom: 1px solid #E2E8F0;
         padding-bottom: 10px;
         margin-bottom: 14px;
         display: flex;
@@ -185,11 +228,11 @@ st.markdown("""
         border-radius: 4px;
         font-family: 'JetBrains Mono', monospace;
     }
-    .pill-p1 { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
-    .pill-p2 { background: #FFEDD5; color: #9A3412; border: 1px solid #FDBA74; }
-    .pill-p3 { background: #E0F2FE; color: #075985; border: 1px solid #7DD3FC; }
-    .pill-p4 { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
-    .pill-tag { background: #F8FAFC; color: #334155; border: 1px solid #E2E8F0; font-family: 'Inter', sans-serif; font-weight: 500; }
+    .pill-p1 { background: #FEE2E2; color: #991B1B !important; border: 1px solid #FCA5A5; }
+    .pill-p2 { background: #FFEDD5; color: #9A3412 !important; border: 1px solid #FDBA74; }
+    .pill-p3 { background: #E0F2FE; color: #075985 !important; border: 1px solid #7DD3FC; }
+    .pill-p4 { background: #F1F5F9; color: #334155 !important; border: 1px solid #CBD5E1; }
+    .pill-tag { background: #F8FAFC; color: #1E293B !important; border: 1px solid #CBD5E1; font-family: 'Inter', sans-serif; font-weight: 500; }
 
     /* Enterprise Alert Banners */
     .banner-warn {
@@ -199,7 +242,7 @@ st.markdown("""
         padding: 12px 14px;
         border-radius: 4px;
         font-size: 13px;
-        color: #78350F;
+        color: #78350F !important;
         margin-bottom: 12px;
     }
     .banner-danger {
@@ -209,7 +252,7 @@ st.markdown("""
         padding: 12px 14px;
         border-radius: 4px;
         font-size: 13px;
-        color: #7F1D1D;
+        color: #7F1D1D !important;
         margin-bottom: 12px;
     }
     .banner-success {
@@ -219,31 +262,35 @@ st.markdown("""
         padding: 12px 14px;
         border-radius: 4px;
         font-size: 13px;
-        color: #064E3B;
+        color: #064E3B !important;
         margin-bottom: 12px;
     }
 
-    /* Primary CTA Button Override (AWS / Enterprise Slate-Amber Accent) */
+    /* Primary & Disabled Button Contrast */
     .stButton > button[kind="primary"] {
-        background-color: #161E2D;
-        color: #FFFFFF;
-        border: 1px solid #161E2D;
+        background-color: #161E2D !important;
+        color: #FFFFFF !important;
+        border: 1px solid #161E2D !important;
         font-weight: 600;
         font-size: 13px;
         border-radius: 4px;
         padding: 8px 16px;
     }
-    .stButton > button[kind="primary"]:hover {
-        background-color: #232F3E;
-        border-color: #FF9900;
+    .stButton > button[kind="primary"] p {
+        color: #FFFFFF !important;
     }
-    .stButton > button[kind="secondary"] {
-        background-color: #FFFFFF;
-        color: #0F172A;
-        border: 1px solid #CBD5E1;
-        font-weight: 500;
-        font-size: 13px;
-        border-radius: 4px;
+    .stButton > button[kind="primary"]:hover {
+        background-color: #232F3E !important;
+        border-color: #FF9900 !important;
+    }
+    .stButton > button:disabled {
+        background-color: #E2E8F0 !important;
+        color: #475569 !important;
+        border: 1px solid #CBD5E1 !important;
+        opacity: 1 !important;
+    }
+    .stButton > button:disabled p {
+        color: #475569 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -427,7 +474,6 @@ st.markdown(f"""
 # VIEW 1: L1 TRIAGE GATEKEEPER
 # -----------------------------------------------------------------------------
 if page == "L1 Triage Gatekeeper":
-    # Top KPI Strip
     st.markdown(f"""
     <div class="kpi-grid">
         <div class="kpi-card">
@@ -453,7 +499,6 @@ if page == "L1 Triage Gatekeeper":
     </div>
     """, unsafe_allow_html=True)
 
-    # Mode Switcher
     mode = st.radio(
         "Intake Source",
         ["Live Open Queue (48 Tickets)", "New Incoming Ticket Simulation"],
@@ -526,7 +571,6 @@ if page == "L1 Triage Gatekeeper":
                 "age_hrs": 0.4
             }
 
-    # Main Split Workspace
     left_col, right_col = st.columns([1.1, 1.35], gap="medium")
     
     with left_col:
@@ -545,13 +589,12 @@ if page == "L1 Triage Gatekeeper":
                 <span class="pill pill-tag">Age: {ticket['age_hrs']:.1f}h</span>
                 <span class="pill pill-tag">Handoffs: {int(ticket['eng_handoffs'])}</span>
             </div>
-            <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:12px; border-radius:4px; font-size:13.5px; color:#1E293B;">
+            <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:12px; border-radius:4px; font-size:13.5px; color:#0F172A;">
                 <strong>Reported Issue:</strong> {ticket['description']}
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        # Engineering Verdict Alert (if already escalated)
         if pd.notna(ticket["eng_outcome"]):
             if ticket["eng_outcome"] == "Fixed":
                 st.markdown(f"""
@@ -568,7 +611,6 @@ if page == "L1 Triage Gatekeeper":
                 </div>
                 """, unsafe_allow_html=True)
 
-        # Historical Duplicate / Pattern Scanner
         similar_df = df[
             (df["category"] == ticket["category"]) &
             (df["ticket_id"] != ticket["ticket_id"]) &
@@ -590,7 +632,6 @@ if page == "L1 Triage Gatekeeper":
             </div>
             """, unsafe_allow_html=True)
 
-        # L1 Standard Operating Procedure
         playbook = CATEGORY_PLAYBOOKS.get(ticket["category"], DEFAULT_PLAYBOOK)
         with st.container(border=True):
             st.markdown("**L1 SELF-SERVE RESOLUTION RUNBOOK**")
